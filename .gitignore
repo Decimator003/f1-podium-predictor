@@ -1,0 +1,6 @@
+### Local cache and artifacts
+cache/
+
+### Environment variables
+.env
+__pycache__/

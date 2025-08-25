@@ -9,7 +9,6 @@ Build a machine learning system that predicts the podium finishers for any upcom
 - Circuit characteristics and metadata
 - Driver and team performance statistics
 - Weather conditions and forecasts
-- Pit stop performance metrics
 - Driver rain adaptability indices
 
 ## 📁 **Project Structure**
@@ -27,7 +26,6 @@ F1_Podium_Predictor/
 │   │   ├── rain_driver_index.csv
 │   │   ├── circuit_info.csv       # Circuit metadata
 │   │   ├── driver_metadata.csv
-│   │   ├── pitstop_data.csv       # Aggregate pitstop data across races
 │   │   ├── race_results.csv       # Aggregate race results (podium only)
 │   │   └── previous_season_results.csv# Historical race data (last year, all drivers)
 │   │
@@ -66,11 +64,10 @@ F1_Podium_Predictor/
 | `load_driver_session_data()` | `*_driver_session_data.csv` | ✅ Done | Practice/quali times, positions |
 | `load_rain_driver_index()` | `rain_driver_index.csv` | ✅ Done | Driver wet weather performance |
 | `load_circuit_info()` | `circuit_info.csv` | ✅ Done | Track characteristics, layout |
-| `load_weather_data()` | `*_forecast.json` | ⬜ To implement | Rain probability, conditions |
-| `load_pitstop_data()` | `pitstop_data.csv` | ⬜ To implement | Aggregate pit stop performance |
+| `load_weather_data()` | `*_forecast.json` | ✅ Done | Rain probability, conditions |
 | `load_driver_team_metadata()` | `driver_metadata.csv` | ✅ Done | Driver/team background info |
-| `load_race_results()` | `race_results.csv` | ⬜ To implement | Actual results for evaluation |
-| `load_previous_season_results()` | `previous_season_results.csv` | ⬜ To implement | Driver/Team perfomance last season |
+| `load_race_results()` | `race_results.csv` | ✅ Done | Actual resulsts for evaluation |
+| `load_previous_season_results()` | `previous_season_results.csv` | ✅ Done | Driver/Team perfomance last season |
 
 
 ### 🔹 **feature_engineer.py**
@@ -80,7 +77,6 @@ F1_Podium_Predictor/
 |------------------|--------------|--------|-------------|
 | Session data merging | Driver session + rain index | ⬜ To implement | Combine practice/quali with rain data |
 | Circuit integration | Circuit info + session data | ⬜ To implement | Add track-specific features |
-| Pit stop metrics | Pit stop data | ⬜ To implement | Team pit stop performance |
 | Weather features | Rain index + weather forecast | ⬜ To implement | Rain-adjusted performance |
 | Derived statistics | Calculated from base data | ⬜ To implement | Qualifying deltas, consistency metrics |
 | Previous year performance | Historical race results + driver data | ⬜ To implement | Add prior year’s performance at same circuit |
@@ -122,7 +118,6 @@ F1_Podium_Predictor/
    - Manual data entry for session times, positions
    - Weather API data collection
    - Circuit metadata compilation
-   - Pit stop performance aggregation
    - Driver/team metadata
    - Previous season results (global reference file)
 
@@ -148,12 +143,11 @@ F1_Podium_Predictor/
 ### **Immediate Next Steps**
 1. ✅ Complete `data_loader.py` functions for all data sources
 2. ✅ Implement `feature_engineer.py` to merge and process data
-3. ✅ Build `model.py` for training and prediction
-4. ✅ Create end-to-end pipeline in notebook
+3. ⬜ Build `model.py` for training and prediction
+4. ⬜ Create end-to-end pipeline in notebook
 
 ### **Data Requirements**
 - **Circuit Info**: Track characteristics, layout, DRS zones
-- **Pit Stop Data**: Aggregate performance across all races
 - **Race Results**: Podium positions for model evaluation
 - **Weather Data**: Rain probability and conditions
 - **Driver Metadata**: Background information and stats
